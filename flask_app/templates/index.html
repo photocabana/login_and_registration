@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title></title>
+</head>
+<body>
+    <wrapper id="index">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div id="popup">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                <button onclick="popup.remove()">Accept</button>
+            </div>
+        {% endif %}
+    {% endwith %}
+        <div class="register">
+            <h1>Register</h1>
+            <form action="/users/create" method="POST">
+                <label>
+                    First Name:
+                    <input type="text" name="first_name">
+                </label>
+                <label>
+                    Last Name:
+                    <input type="text" name="last_name">
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password">
+                </label>
+                <label>
+                    Confirm Password:
+                    <input type="password" name="confirm_password">
+                </label>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+        <div class="login">
+            <h2>Login</h2>
+            <form action="/users/login" method="POST">
+            <label>
+                Email:
+                <input type="email" name="email">
+            </label>
+            <label>
+                Password:
+                <input type="password" name="password">
+            </label>
+            <input type="submit" value="Login">
+            </form>
+        </div>
+    </wrapper>
+
+</body>
+</html>
+
+<!-- Format for adding images -->
+<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->

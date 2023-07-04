@@ -1,0 +1,19 @@
+
+
+#index {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.register {
+    flex: 1;
+    background-color: cadetblue;
+}
+
+.login {
+    flex: 1;
+    background-color: cadetblue;
+}

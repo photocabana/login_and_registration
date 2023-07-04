@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>All People</title>
+</head>
+<body>
+    
+    <h1>All People!</h1>
+    <h2>Welcome {{ session['user_name'] }}</h2>
+    <a href="/users/logout">Sign Out</a>
+    
+    {% for user in users %}
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <p>Email:  {{user.email}}</p>
+        <p>Created At:  {{user.created_at}}</p>
+        <a href="/users/{{user.id}}/profile">View</a>
+    {% endfor %}
+
+    
+</body>
+</html>
+
+<!-- Format for adding images -->
+<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->
